@@ -42,6 +42,14 @@ import com.example.starwars.starwars.people.R
 @Composable
 fun DetailPage(detailViewModel: DetailViewModel, sharedViewModel: SharedViewModel, navHostController: NavHostController) {
 
+    // These two values are shared using two different APIs
+    //
+    //   person using MutableLiveData
+    //   sharedId using Flow
+    //
+    // Both allow this Composable to be updated when the values
+    // change in their respective ViewModels
+
     val sharedId by sharedViewModel.sharedId.collectAsState()
     val person by detailViewModel.person.observeAsState(null)
 
@@ -74,7 +82,7 @@ fun DetailPage(detailViewModel: DetailViewModel, sharedViewModel: SharedViewMode
 
                 ) {
 
-                    peopleDetail(person)
+                    PeopleDetail(person)
 
                 }
             }
@@ -94,7 +102,7 @@ fun DetailPage(detailViewModel: DetailViewModel, sharedViewModel: SharedViewMode
 }
 
 @Composable
-fun peopleDetail(person : Person?) {
+fun PeopleDetail(person : Person?) {
 
     val textModifier = Modifier.fillMaxWidth()
 
@@ -109,15 +117,15 @@ fun peopleDetail(person : Person?) {
             Column () {
 
                 Text(
-                    """${person.name}""",
+                    person.name,
                     textModifier.padding(bottom = 30.dp),
                     fontWeight = FontWeight.Bold,
                     fontSize = 25.sp,
                     textAlign = TextAlign.Center
                 )
 
-                Text( text = """gender: ${person.gender}""" )
-                Text( text = """born: ${person.birth_year}""" )
+                Text( text = person.gender )
+                Text( text = person.birth_year )
                 Text( text = """hair: ${person.hair_color}  eyes: ${person.eye_color}""" )
 
                 var cm = "cm"

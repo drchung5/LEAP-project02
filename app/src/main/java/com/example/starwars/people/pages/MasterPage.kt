@@ -19,7 +19,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -40,7 +39,7 @@ fun MasterPage(
     sharedViewModel: SharedViewModel,
     navHostController: NavHostController) {
 
-    val sharedId by sharedViewModel.sharedId.collectAsState()
+//    val sharedId by sharedViewModel.sharedId.observeAsState()
     val people by personViewModel.people.observeAsState(emptyList())
 
     LaunchedEffect(Unit, block = {
