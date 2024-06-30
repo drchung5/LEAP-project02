@@ -39,7 +39,6 @@ fun MasterPage(
     sharedViewModel: SharedViewModel,
     navHostController: NavHostController) {
 
-//    val sharedId by sharedViewModel.sharedId.observeAsState()
     val people by personViewModel.people.observeAsState(emptyList())
 
     LaunchedEffect(Unit, block = {
