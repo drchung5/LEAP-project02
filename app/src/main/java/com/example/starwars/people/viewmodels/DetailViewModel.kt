@@ -26,7 +26,7 @@ class DetailViewModel : ViewModel() {
 
             try {
 
-                var tempPerson = peopleService.getPerson(id)
+                val tempPerson = peopleService.getPerson(id)
 
                 // retrieve the homeworld
                 val homeworldId: Int? = regex.find(tempPerson.homeworld)?.value?.toInt()
@@ -41,7 +41,7 @@ class DetailViewModel : ViewModel() {
                 tempPerson.films?.forEach {
                     url -> run {
                         val filmId: Int? = regex.find(url)?.value?.toInt()
-                        val film = filmId?.let { filmService?.getFilm(filmId) }
+                        val film = filmId?.let { filmService.getFilm(filmId) }
 
                         film?.let { filmList.add(it) }
 
@@ -55,7 +55,7 @@ class DetailViewModel : ViewModel() {
                 val filmTitles :MutableList<String> = mutableListOf()
 
                 filmList.forEach {
-                    filmTitles.add("""Episode ${it.episode_id}: ${it.title}""")
+                    filmTitles.add("""Episode ${toRomanNumeral(it.episode_id)}: ${it.title}""")
                 }
 
                 tempPerson.films = filmTitles
@@ -83,6 +83,6 @@ fun toRomanNumeral( number :Int ) :String {
         returnVal = romanNumerals[number]
     }
 
-    return returnVal;
+    return returnVal
 
 }

@@ -1,17 +1,8 @@
-**Star Wars App**
+**Star Wars Peopl App**
 
-This Android application uses the *Star Wars API* (SWAPI) from https://swapi.dev/ to list movies, 
-people, and planets from the Star Wars universe. At the time this app was created SWAPI only covers
-six of the movies:
+This Android application uses the *Star Wars API* (SWAPI) from https://swapi.dev/ build an application that displays a list of all the *people* in the SWAPI database. When you click on a person it displays a page with detailed information. The app also supports a *Floating Action Bar* that serves as a back button.
 
-1. Phantom Menace
-2. Attack of the Clones
-3. Rvenge of the Sith
-4. A New Hope
-5. The Empire Strike Back
-6. Return of the Jedi
 
-This app retrieves; movies(films), people, and planets. It displays names and ignores other information. SWAPI returns information in pages of 10. The app only displays the first 10 items.
 
 <hr>
 
